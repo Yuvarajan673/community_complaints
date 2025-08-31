@@ -1,5 +1,3 @@
-import time
-from django.contrib import messages
 from django.http import HttpResponse
 from django.shortcuts import redirect, render
 from django.contrib.auth.models import User
@@ -63,7 +61,8 @@ def submit_complaint(request):
             location=location,
             image=image
         )
-    return redirect('mycomplaints')
+
+    return HttpResponse("Complaint Submitted")
 
 
 
