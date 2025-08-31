@@ -1,0 +1,45 @@
+{% extends 'layout/main.html' %} {% block title %} Community Complaints Tracker
+{% endblock title %} {% block content %}
+<main>
+  <div class="hero-section"></div>
+  <br /><br />
+  <div class="main-content">
+    <div class="content-group">
+      <h2 id="recent-h2">Recent Complaint</h2>
+
+      <hr />
+      <div class="btn-icon-group">
+        <a href="allcomplaints">
+          <button type="button" id="seeallbtn">See All Complaints <i class="fa-solid fa-arrow-right"></i></button></a
+        >
+      </div>
+       <div class="cards-group">
+        {% for complaint in recentcomplaints %}
+        <a href="{% url 'complaintdetails' complaint.id %}">
+          <div class="card">
+            <div class="card-image">
+              <img src="{{complaint.image.url}}" alt="" />
+              <label id="supportbtn-bg">
+              <input type="checkbox" id="supportbtn">
+              </label>
+            </div>
+            <div class="card-details">
+              <h4>Category : {{ complaint.category }}</h4>
+              <p>Title : {{ complaint.title }}</p>
+              {% if complaint.status == 'pending' %}
+              <p id="pending">Status : {{ complaint.status }}</p>
+              {% elif complaint.status == 'in_progress' %}
+              <p id="inprogress">Status : {{ complaint.status }}</p>
+              {% else %}
+              <p id="resolved">Status : {{ complaint.status }}</p>
+              {% endif %}
+            </div>
+          </div>
+          </a> 
+        {% endfor %}
+    </div>
+    </div>
+  </div>
+</main>
+
+{% endblock content %}
