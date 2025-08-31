@@ -61,8 +61,9 @@ def submit_complaint(request):
             location=location,
             image=image
         )
+        return HttpResponse("Complaint Submitted")
 
-    return HttpResponse("Complaint Submitted")
+    return redirect('mycomplaints.html')
 
 
 
