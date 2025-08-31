@@ -26,7 +26,7 @@ SECRET_KEY = os.getenv("SECRET_KEY", "dummy-secret")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ["complaints_tracker.onrender.com"]
+ALLOWED_HOSTS = ["community-complaints.onrender.com"]
 
 
 # Application definition
