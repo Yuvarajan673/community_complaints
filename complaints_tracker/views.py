@@ -63,8 +63,7 @@ def submit_complaint(request):
             location=location,
             image=image
         )
-        return messages.success(request,"Complaint submitted successfully!")
-    return redirect('mycomplaints.html')
+    return messages.success(request,"Complaint submitted successfully!")
 
 
 
